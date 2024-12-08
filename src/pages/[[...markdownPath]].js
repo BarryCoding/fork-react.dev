@@ -6,7 +6,8 @@ import {Fragment, useMemo} from 'react';
 import {useRouter} from 'next/router';
 import {Page} from 'components/Layout/Page';
 import sidebarHome from '../sidebarHome.json';
-import sidebarLearn from '../sidebarLearn.json';
+// import sidebarLearn from '../sidebarLearn.json';
+import sidebarLearn from '../mySidebarLearn.json'; // my
 import sidebarReference from '../sidebarReference.json';
 import sidebarCommunity from '../sidebarCommunity.json';
 import sidebarBlog from '../sidebarBlog.json';
