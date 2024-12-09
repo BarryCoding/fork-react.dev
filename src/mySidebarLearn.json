@@ -16,37 +16,33 @@
         },
         {
           "title": "Thinking in React",
-          "path": "/learn/thinking-in-react"
+          "path": "/learn/my-thinking-in-react"
         }
       ]
     },
     {
       "title": "Installation",
-      "path": "/learn/installation",
+      "path": "/learn/my-installation",
       "routes": [
         {
           "title": "Start a New React Project",
-          "path": "/learn/start-a-new-react-project"
-        },
-        {
-          "title": "Add React to an Existing Project",
-          "path": "/learn/add-react-to-an-existing-project"
+          "path": "/learn/my-start-a-new-react-project"
         },
         {
           "title": "Editor Setup",
-          "path": "/learn/editor-setup"
-        },
-        {
-          "title": "Using TypeScript",
-          "path": "/learn/typescript"
+          "path": "/learn/my-editor-setup"
         },
         {
           "title": "React Developer Tools",
-          "path": "/learn/react-developer-tools"
+          "path": "/learn/my-react-developer-tools"
+        },
+        {
+          "title": "Using TypeScript",
+          "path": "/learn/my-typescript"
         },
         {
           "title": "React Compiler",
-          "path": "/learn/react-compiler",
+          "path": "/learn/my-react-compiler",
           "canary": true
         }
       ]
@@ -204,6 +200,24 @@
         {
           "title": "Reusing Logic with Custom Hooks",
           "path": "/learn/reusing-logic-with-custom-hooks"
+        }
+      ]
+    },
+    {
+      "title": "TODO: Rules of React",
+      "path": "/learn/rules",
+      "routes": [
+        {
+          "title": "Components and Hooks must be pure",
+          "path": "/learn/rules/components-and-hooks-must-be-pure"
+        },
+        {
+          "title": "React calls Components and Hooks",
+          "path": "/learn/rules/react-calls-components-and-hooks"
+        },
+        {
+          "title": "Rules of Hooks",
+          "path": "/learn/rules/rules-of-hooks"
         }
       ]
     }

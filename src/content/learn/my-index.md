@@ -1,21 +1,22 @@
 ---
-title: Quick Start 1
+title: My Quick Start
 ---
 
 <Intro>
 
-Welcome to the React documentation! This page will give you an introduction to the 80% of React concepts that you will use on a daily basis.
+Welcome to the React documentation!  
+This page will give you an introduction to the **80%** of React concepts that you will use on a daily basis.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to create and nest components
-- How to add markup and styles
-- How to display data
-- How to render conditions and lists
-- How to respond to events and update the screen
-- How to share data between components
+1. How to create and nest components
+2. How to add markup and styles
+3. How to display data
+4. How to render conditions and lists
+5. How to respond to events and update the screen
+6. How to share data between components
 
 </YouWillLearn>
 
@@ -25,7 +26,7 @@ React apps are made out of *components*. A component is a piece of the UI (user 
 
 React components are JavaScript functions that return markup:
 
-```js
+```tsx
 function MyButton() {
   return (
     <button>I'm a button</button>
@@ -35,7 +36,7 @@ function MyButton() {
 
 Now that you've declared `MyButton`, you can nest it into another component:
 
-```js {5}
+```tsx {5}
 export default function MyApp() {
   return (
     <div>
@@ -46,7 +47,9 @@ export default function MyApp() {
 }
 ```
 
-Notice that `<MyButton />` starts with a capital letter. That's how you know it's a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
+Notice that `<MyButton />` starts with a **Capital Letter**. That's how you know it's a React component. 
+
+React component names must always start with a capital letter, while HTML tags must be lowercase.
 
 Have a look at the result:
 
@@ -73,15 +76,18 @@ export default function MyApp() {
 
 </Sandpack>
 
-The `export default` keywords specify the main component in the file. If you're not familiar with some piece of JavaScript syntax, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [javascript.info](https://javascript.info/import-export) have great references.
+The `export default` keywords specify the main component in the file.  
 
 ## Writing markup with JSX {/*writing-markup-with-jsx*/}
 
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/my-installation) support JSX out of the box.
 
-JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
+JSX is stricter than HTML. 
+- You have to close tags like `<br />`. 
+- Your component also can't return multiple JSX tags. 
+  - You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
 
-```js {3,6}
+```tsx {3,6}
 function AboutPage() {
   return (
     <>
@@ -98,7 +104,7 @@ If you have a lot of HTML to port to JSX, you can use an [online converter.](htt
 
 In React, you specify a CSS class with `className`. It works the same way as the HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) attribute:
 
-```js
+```tsx
 <img className="avatar" />
 ```
 
@@ -111,13 +117,17 @@ Then you write the CSS rules for it in a separate CSS file:
 }
 ```
 
-React does not prescribe how you add CSS files. In the simplest case, you'll add a [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to your HTML. If you use a build tool or a framework, consult its documentation to learn how to add a CSS file to your project.
+React does not prescribe how you add CSS files. 
+- In the simplest case, you'll add a [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to your HTML. 
+- If you use a build tool or a framework, consult its documentation to learn how to add a CSS file to your project.
 
 ## Displaying data {/*displaying-data*/}
 
-JSX lets you put markup into JavaScript. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
+**Curly braces** let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. 
 
-```js {3}
+For example, this will display `user.name`:
+
+```tsx {3}
 return (
   <h1>
     {user.name}
@@ -125,9 +135,11 @@ return (
 );
 ```
 
-You can also "escape into JavaScript" from JSX attributes, but you have to use curly braces *instead of* quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+You can also "escape into JavaScript" from JSX attributes, but you have to use curly braces *instead of* quotes.  
 
-```js {3,4}
+For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+
+```tsx {3,4}
 return (
   <img
     className="avatar"
@@ -181,10 +193,12 @@ In the above example, `style={{}}` is not a special syntax, but a regular `{}` o
 
 ## Conditional rendering {/*conditional-rendering*/}
 
-In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code. For example, you can use an [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code.  
 
-```js
-let content;
+For example, you can use an [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+
+```tsx
+let content:React.ReactNode;
 if (isLoggedIn) {
   content = <AdminPanel />;
 } else {
@@ -199,7 +213,7 @@ return (
 
 If you prefer more compact code, you can use the [conditional `?` operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Unlike `if`, it works inside JSX:
 
-```js
+```tsx
 <div>
   {isLoggedIn ? (
     <AdminPanel />
@@ -211,7 +225,7 @@ If you prefer more compact code, you can use the [conditional `?` operator.](htt
 
 When you don't need the `else` branch, you can also use a shorter [logical `&&` syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
 
-```js
+```tsx
 <div>
   {isLoggedIn && <AdminPanel />}
 </div>
@@ -225,7 +239,7 @@ You will rely on JavaScript features like [`for` loop](https://developer.mozilla
 
 For example, let's say you have an array of products:
 
-```js
+```tsx
 const products = [
   { title: 'Cabbage', id: 1 },
   { title: 'Garlic', id: 2 },
@@ -235,7 +249,7 @@ const products = [
 
 Inside your component, use the `map()` function to transform an array of products into an array of `<li>` items:
 
-```js
+```tsx
 const listItems = products.map(product =>
   <li key={product.id}>
     {product.title}
@@ -247,7 +261,10 @@ return (
 );
 ```
 
-Notice how `<li>` has a `key` attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. React uses your keys to know what happened if you later insert, delete, or reorder the items.
+Notice how `<li>` has a `key` attribute.
+- For each item in a list, you should pass a string or a number that uniquely identifies that item.
+- Usually, a key should be coming from your data, such as a database ID. 
+- React uses your keys to know what happened if you later insert, delete, or reorder the items.
 
 <Sandpack>
 
@@ -282,7 +299,7 @@ export default function ShoppingList() {
 
 You can respond to events by declaring *event handler* functions inside your components:
 
-```js {2-4,7}
+```tsx {2-4,7}
 function MyButton() {
   function handleClick() {
     alert('You clicked me!');
@@ -296,31 +313,38 @@ function MyButton() {
 }
 ```
 
-Notice how `onClick={handleClick}` has no parentheses at the end! Do not _call_ the event handler function: you only need to *pass it down*. React will call your event handler when the user clicks the button.
+Notice how `onClick={handleClick}` has no parentheses at the end! 
+- Do not _call_ the event handler function: you only need to *pass it down*. 
+- React will call your event handler when the user clicks the button.
 
 ## Updating the screen {/*updating-the-screen*/}
 
-Often, you'll want your component to "remember" some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add *state* to your component.
+Often, you'll want your component to "remember" some information and display it.  
 
-First, import [`useState`](/reference/react/useState) from React:
+For example, maybe you want to count the number of times a button is clicked. To do this, add *state* to your component.
 
-```js
+- import [`useState`](/reference/react/useState) from React:
+
+```tsx
 import { useState } from 'react';
 ```
 
-Now you can declare a *state variable* inside your component:
+- Now you can declare a *state variable* inside your component:
 
-```js
+```tsx
 function MyButton() {
   const [count, setCount] = useState(0);
   // ...
 ```
 
-You’ll get two things from `useState`: the current state (`count`), and the function that lets you update it (`setCount`). You can give them any names, but the convention is to write `[something, setSomething]`.
+You’ll get two things from `useState`: 
+1. the current state (`count`), 
+2. and the function that lets you update it (`setCount`). 
+3. You can give them any names, but the convention is to write `[something, setSomething]`.
 
 The first time the button is displayed, `count` will be `0` because you passed `0` to `useState()`. When you want to change state, call `setCount()` and pass the new value to it. Clicking this button will increment the counter:
 
-```js {5}
+```tsx {5}
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -385,7 +409,9 @@ Notice how each button "remembers" its own `count` state and doesn't affect othe
 
 Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [API reference.](/reference/react) You can also write your own Hooks by combining the existing ones.
 
-Hooks are more restrictive than other functions. You can only call Hooks *at the top* of your components (or other Hooks). If you want to use `useState` in a condition or a loop, extract a new component and put it there.
+Hooks are more restrictive than other functions. 
+- You can only call Hooks *at the top* of your components (or other Hooks). 
+- If you want to use `useState` in a condition or a loop, extract a new component and put it there.
 
 ## Sharing data between components {/*sharing-data-between-components*/}
 
@@ -433,7 +459,7 @@ Now when you click either button, the `count` in `MyApp` will change, which will
 
 First, *move the state up* from `MyButton` into `MyApp`:
 
-```js {2-6,18}
+```tsx {2-6,18}
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -458,7 +484,7 @@ function MyButton() {
 
 Then, *pass the state down* from `MyApp` to each `MyButton`, together with the shared click handler. You can pass information to `MyButton` using the JSX curly braces, just like you previously did with built-in tags like `<img>`:
 
-```js {11-12}
+```tsx {11-12}
 export default function MyApp() {
   const [count, setCount] = useState(0);
 
@@ -480,8 +506,8 @@ The information you pass down like this is called _props_. Now the `MyApp` compo
 
 Finally, change `MyButton` to *read* the props you have passed from its parent component:
 
-```js {1,3}
-function MyButton({ count, onClick }) {
+```tsx {1,3}
+function MyButton({ count, onClick }:{ count: number, onClick: () => void }) {
   return (
     <button onClick={onClick}>
       Clicked {count} times
